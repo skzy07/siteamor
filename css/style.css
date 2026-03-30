@@ -368,14 +368,16 @@ html, body {
 }
 
 .dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 14px;
   padding: 0 20px 120px;
-  max-width: 700px;
+  max-width: 660px;
   margin: 20px auto 0;
 }
 .dash-card {
+  flex: 0 0 140px;
   background: rgba(255,255,255,.05);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -406,19 +408,7 @@ html, body {
   position: relative;
   z-index: 1;
 }
-.dash-card.hot { border-color: rgba(232,99,122,.4); }
-.dash-card.hot::after {
-  content: 'NOVO';
-  position: absolute;
-  top: 8px; right: 8px;
-  font-size: .5rem;
-  letter-spacing: 1px;
-  background: var(--rose);
-  color: white;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: 700;
-}
+
 
 /* ============================================================
    PAGE 2 — TIMELINE
@@ -433,11 +423,10 @@ html, body {
   position: absolute;
   left: 50%;
   top: 0; bottom: 0;
-  width: 40px;
+  width: 4px;
   transform: translateX(-50%);
-  background-image: url('data:image/svg+xml;utf8,<svg width="40" height="120" xmlns="http://www.w3.org/2000/svg"><path d="M20,0 C45,30 45,30 20,60 C-5,90 -5,90 20,120" stroke="%23f4a0b0" stroke-width="2" fill="none" opacity="0.6"/></svg>');
-  background-repeat: repeat-y;
-  background-size: 40px 120px;
+  background: var(--rose-l);
+  border-radius: 4px;
   opacity: 0.5;
 }
 .tl-item {
@@ -941,9 +930,17 @@ html, body {
    PAGE 9 — PUZZLE & BAÚ
    ============================================================ */
 .desafio-wrap {
-  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px 120px;
+}
+@media(min-width: 800px) {
+  .desafio-wrap { flex-direction: row; align-items: flex-start; }
+  .desafio-esquerda { flex: 1; }
+  .bau-section { flex: 1; margin-top: 0; padding-top: 0; border-top: none; border-left: 1px solid var(--border); padding-left: 40px; }
 }
 .puzzle-hint-box {
   background: rgba(212,168,83,.08);

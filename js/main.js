@@ -40,11 +40,9 @@ function goTo(id, btn){
 /* ============================================================
    COUNTER
    ============================================================ */
-const START = new Date('2024-10-31T00:00:00');
-const TARGET_5_MONTHS = new Date('2025-03-31T00:00:00');
-const LOAD_TIME = Date.now();
+const START = new Date('2025-10-31T00:00:00');
 function tick(){
-  const diff = (TARGET_5_MONTHS.getTime() - START.getTime()) + (Date.now() - LOAD_TIME);
+  const diff = Date.now() - START.getTime();
   const d = Math.floor(diff/86400000);
   const h = Math.floor((diff%86400000)/3600000);
   const m = Math.floor((diff%3600000)/60000);
@@ -104,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const tlContainer = document.getElementById('tl-items');
     if (tlContainer) {
         moments.forEach((m,i)=>{
-          const isEven = i%2===1;
           const el = document.createElement('div');
           el.className = 'tl-item';
           const card = `<div class="tl-card">
@@ -113,9 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="tl-desc">${m.desc}</p>
             <div class="tl-photo" style="background:${m.color}">${m.emoji}<div class="tl-photo-tag">${m.tag}</div></div>
           </div>`;
-          el.innerHTML = isEven
-            ? `<div class="tl-spacer"></div><div class="tl-node"><div class="tl-dot">${m.emoji}</div></div>${card}`
-            : `${card}<div class="tl-node"><div class="tl-dot">${m.emoji}</div></div><div class="tl-spacer"></div>`;
+          el.innerHTML = `${card}<div class="tl-node"><div class="tl-dot">${m.emoji}</div></div><div class="tl-spacer"></div>`;
           tlContainer.appendChild(el);
         });
     }
@@ -442,13 +437,8 @@ function showScratchReward(c){
   rt.textContent = `${c.icon} ${c.text}`;
   rt.style.display='block';
 
-  // Draw standard text over canvas as well
-  ctx.fillStyle='#1a0a12';
-  ctx.fillRect(0,0,300,160);
-  ctx.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--rose-l')||'#f4a0b0';
-  ctx.font='bold 14px Dancing Script, cursive';
-  ctx.textAlign='center';
-  ctx.fillText('🎫 Vai à lista de cupões! 🎫',150,80);
+  // Keep fully transparent so the scratch result below is visible
+
 
   // Add to list
   addCoupon(c);
@@ -471,16 +461,7 @@ function addCoupon(c){
 }
 
 function buildCouponList(){
-  const list = document.getElementById('coupon-list');
-  if(!list) return;
-  // show initial coupons in list as locked
-  coupons.slice(0,3).forEach(c=>{
-    const el = document.createElement('div');
-    el.className='coupon-item';
-    el.style.opacity='.3';
-    el.innerHTML=`<span class="coupon-icon">🔒</span><div class="coupon-text">Raspa para desbloquear este cupão<small>volta à raspadinha!</small></div>`;
-    list.appendChild(el);
-  });
+  // Removed locked placeholder coupons as requested
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -549,7 +530,7 @@ function closeModal(e){
 /* ============================================================
    COFRE
    ============================================================ */
-const COFRE_PASSWORD = 'ESTAÇÃO DE GAIA';
+const COFRE_PASSWORD = 'DEVESAS';
 function openCofre(){
   const val = document.getElementById('cofre-input').value.trim().toUpperCase();
   const err = document.getElementById('cofre-error');
@@ -569,35 +550,9 @@ function openCofre(){
 }
 
 /* ============================================================
-   POLAROIDS
+   POLAROIDS REMOVIDO
    ============================================================ */
-const polaroidData = [
-  {emoji:'🍂',bg:'linear-gradient(135deg,#ff9966,#ff5e62)',caption:'O dia que começou tudo — 24 out',r:-3},
-  {emoji:'🎃',bg:'linear-gradient(135deg,#f7971e,#ffd200)',caption:'Halloween & nós 🎃 31 out',r:2},
-  {emoji:'🌈',bg:'linear-gradient(135deg,#11998e,#38ef7d)',caption:'Neonia 💚 15 nov',r:-1.5},
-  {emoji:'🎄',bg:'linear-gradient(135deg,#2d6a4f,#c0392b)',caption:'Luzes de Natal ✨ 19 nov',r:3},
-  {emoji:'🎂',bg:'linear-gradient(135deg,#a18cd1,#fbc2eb)',caption:'O teu aniversário 🎂 4 dez',r:-2},
-  {emoji:'🎆',bg:'linear-gradient(135deg,#232526,#ffd700)',caption:'Ano Novo 💫 31 dez',r:1.5},
-  {emoji:'🧱',bg:'linear-gradient(135deg,#f7971e,#ffd200)',caption:'Expo LEGO 🧱 31 jan',r:-3.5},
-  {emoji:'💝',bg:'linear-gradient(135deg,#e96c6c,#f4a0b0)',caption:'Dia dos Namorados 💝 14 fev',r:2.5},
-  {emoji:'🌊',bg:'linear-gradient(135deg,#56ccf2,#f7c59f)',caption:'Praia de inverno 🌊 21 fev',r:-1},
-  {emoji:'🎭',bg:'linear-gradient(135deg,#8e44ad,#3498db)',caption:'5 Sentidos 🎭 28 fev',r:3.5},
-  {emoji:'⚓',bg:'linear-gradient(135deg,#c44d63,#d4a853)',caption:'Pulseiras permanentes ⚓ 28 mar',r:-2.5},
-  {emoji:'🌅',bg:'linear-gradient(135deg,#2980b9,#6dd5fa)',caption:'Tarde na Foz 🌅 28 mar',r:1},
-];
 
-document.addEventListener("DOMContentLoaded", () => {
-    const polGrid = document.getElementById('polaroids-grid');
-    if (polGrid) {
-        polaroidData.forEach(p=>{
-          const el = document.createElement('div');
-          el.className='polaroid';
-          el.style.setProperty('--r',p.r+'deg');
-          el.innerHTML=`<div class="polaroid-img" style="background:${p.bg}">${p.emoji}</div><p class="polaroid-caption">${p.caption}</p>`;
-          polGrid.appendChild(el);
-        });
-    }
-});
 
 /* ============================================================
    BUCKET LIST
@@ -684,9 +639,9 @@ function toggleBucket(el){
    PUZZLE
    ============================================================ */
 const correctSeq = [
-  'Primeiro Encontro', 'Início do Namoro', 'Museu Neonia', 'Luzes de Natal', 
-  'Aniversário', 'Ano Novo', 'Expo LEGO', 'Dia dos Namorados', 
-  'Ida à Praia', 'Museu 5 Sentidos', 'Pulseiras Permanentes', 'Tarde na Foz'
+  'O Primeiro Encontro', 'O Início de Nós', 'Neonia — O Museu das Cores', 'Luzes de Natal', 
+  'O Aniversário Dela ✨', 'Ano Novo Juntos', 'Exposição de LEGO', 'Dia dos Namorados', 
+  'Ida à Praia', 'Museu dos 5 Sentidos', 'Pulseiras Permanentes', 'Tarde na Foz'
 ];
 let currentSeq = [...correctSeq];
 let selIdx = null;
