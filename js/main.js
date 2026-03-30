@@ -84,18 +84,18 @@ function setVolume(val) {
    TIMELINE DATA
    ============================================================ */
 const moments = [
-  {date:'24 Out 2024',emoji:'🍂',title:'O Primeiro Encontro',desc:'Era outono e o coração já sabia o que a cabeça ainda não queria admitir. O primeiro encontro que mudou tudo — sem saber que ia mudar tudo.',color:'linear-gradient(135deg,#ff9966,#ff5e62)',tag:'onde tudo começou'},
-  {date:'31 Out 2024',emoji:'🎃',title:'O Início de Nós',desc:'Dia de Halloween. Mas o susto verdadeiro foi perceber que queríamos ser um "nós". O melhor susto da vida.',color:'linear-gradient(135deg,#f7971e,#ffd200)',tag:'o nosso dia'},
-  {date:'15 Nov 2024',emoji:'🌈',title:'Neonia — O Museu das Cores',desc:'Uma tarde cheia de cores, luzes e muito sorriso. O Neonia foi tão bonito como estava a sentir por dentro.',color:'linear-gradient(135deg,#11998e,#38ef7d)',tag:'15 de novembro'},
-  {date:'19 Nov 2024',emoji:'🎄',title:'Luzes de Natal',desc:'Luzes por todo o lado... mas a mais bonita eras tu. Natal chegou cedo este ano.',color:'linear-gradient(135deg,#2d6a4f,#c0392b)',tag:'magia de natal'},
-  {date:'4 Dez 2024',emoji:'🎂',title:'O Aniversário Dela ✨',desc:'O dia mais especial do ano ficou ainda mais especial. Feliz aniversário para a pessoa que tornou os meus dias melhores.',color:'linear-gradient(135deg,#a18cd1,#fbc2eb)',tag:'o teu dia'},
-  {date:'31 Dez 2024',emoji:'🎆',title:'Ano Novo Juntos',desc:'Virar o ano com a mão certa na mão. 2025 chegou e a única coisa que queríamos era ficar assim.',color:'linear-gradient(135deg,#232526,#ffd700)',tag:'o melhor início de ano'},
-  {date:'31 Jan 2025',emoji:'🧱',title:'Exposição de LEGO',desc:'Mundos construídos peça a peça... como nós. Prova que as coisas mais bonitas demoram a construir-se.',color:'linear-gradient(135deg,#f7971e,#ffd200)',tag:'31 de janeiro'},
-  {date:'14 Fev 2025',emoji:'💝',title:'Dia dos Namorados',desc:'O dia que foi inventado para nós. Ou melhor — para toda a gente, mas que aproveitámos na perfeição.',color:'linear-gradient(135deg,#e96c6c,#f4a0b0)',tag:'o dia mais clichê e mais bonito'},
-  {date:'21 Fev 2025',emoji:'🌊',title:'Ida à Praia',desc:'O mar, a areia e a melhor companhia do mundo. A praia no inverno tem uma magia diferente — com a pessoa certa, ainda mais.',color:'linear-gradient(135deg,#56ccf2,#f7c59f)',tag:'21 de fevereiro'},
-  {date:'28 Fev 2025',emoji:'🎭',title:'Museu dos 5 Sentidos',desc:'Ver, ouvir, sentir, cheirar, provar... e ainda assim o sentido favorito foi estar contigo. Cinco sentidos não chegam.',color:'linear-gradient(135deg,#8e44ad,#3498db)',tag:'28 de fevereiro'},
-  {date:'28 Mar 2025',emoji:'⚓',title:'Pulseiras Permanentes',desc:'Um laço que não se tira. Como nós: permanente e para sempre.',color:'linear-gradient(135deg,#c44d63,#d4a853)',tag:'permanente 💕'},
-  {date:'28 Mar 2025',emoji:'🌅',title:'Tarde na Foz',desc:'O Atlântico à nossa frente e o mundo inteiro atrás. A melhor tarde de março.',color:'linear-gradient(135deg,#2980b9,#6dd5fa,#fff)',tag:'a nossa foz'},
+  {date:'24 Out 2025',emoji:'🍂',title:'O Primeiro Encontro',desc:'Era outono e o coração já sabia o que a cabeça ainda não queria admitir. O primeiro encontro que mudou tudo — sem saber que ia mudar tudo.',color:'linear-gradient(135deg,#ff9966,#ff5e62)',tag:'onde tudo começou'},
+  {date:'31 Out 2025',emoji:'🎃',title:'O Início de Nós',desc:'Dia de Halloween. Mas o susto verdadeiro foi perceber que queríamos ser um "nós". O melhor susto da vida.',color:'linear-gradient(135deg,#f7971e,#ffd200)',tag:'o nosso dia'},
+  {date:'15 Nov 2025',emoji:'🌈',title:'Neonia — O Museu das Cores',desc:'Uma tarde cheia de cores, luzes e muito sorriso. O Neonia foi tão bonito como estava a sentir por dentro.',color:'linear-gradient(135deg,#11998e,#38ef7d)',tag:'15 de novembro'},
+  {date:'19 Nov 2025',emoji:'🎄',title:'Luzes de Natal',desc:'Luzes por todo o lado... mas a mais bonita eras tu. Natal chegou cedo este ano.',color:'linear-gradient(135deg,#2d6a4f,#c0392b)',tag:'magia de natal'},
+  {date:'4 Dez 2025',emoji:'🎂',title:'O Aniversário Dela ✨',desc:'O dia mais especial do ano ficou ainda mais especial. Feliz aniversário para a pessoa que tornou os meus dias melhores.',color:'linear-gradient(135deg,#a18cd1,#fbc2eb)',tag:'o teu dia'},
+  {date:'31 Dez 2025',emoji:'🎆',title:'Ano Novo Juntos',desc:'Virar o ano com a mão certa na mão. 2026 chegou e a única coisa que queríamos era ficar assim.',color:'linear-gradient(135deg,#232526,#ffd700)',tag:'o melhor início de ano'},
+  {date:'31 Jan 2026',emoji:'🧱',title:'Exposição de LEGO',desc:'Mundos construídos peça a peça... como nós. Prova que as coisas mais bonitas demoram a construir-se.',color:'linear-gradient(135deg,#f7971e,#ffd200)',tag:'31 de janeiro'},
+  {date:'14 Fev 2026',emoji:'💝',title:'Dia dos Namorados',desc:'O dia que foi inventado para nós. Ou melhor — para toda a gente, mas que aproveitámos na perfeição.',color:'linear-gradient(135deg,#e96c6c,#f4a0b0)',tag:'o dia mais clichê e mais bonito'},
+  {date:'21 Fev 2026',emoji:'🌊',title:'Ida à Praia',desc:'O mar, a areia e a melhor companhia do mundo. A praia no inverno tem uma magia diferente — com a pessoa certa, ainda mais.',color:'linear-gradient(135deg,#56ccf2,#f7c59f)',tag:'21 de fevereiro'},
+  {date:'28 Fev 2026',emoji:'🎭',title:'Museu dos 5 Sentidos',desc:'Ver, ouvir, sentir, cheirar, provar... e ainda assim o sentido favorito foi estar contigo. Cinco sentidos não chegam.',color:'linear-gradient(135deg,#8e44ad,#3498db)',tag:'28 de fevereiro'},
+  {date:'28 Mar 2026',emoji:'⚓',title:'Pulseiras Permanentes',desc:'Um laço que não se tira. Como nós: permanente e para sempre.',color:'linear-gradient(135deg,#c44d63,#d4a853)',tag:'permanente 💕'},
+  {date:'28 Mar 2026',emoji:'🌅',title:'Tarde na Foz',desc:'O Atlântico à nossa frente e o mundo inteiro atrás. A melhor tarde de março.',color:'linear-gradient(135deg,#2980b9,#6dd5fa,#fff)',tag:'a nossa foz'},
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -188,7 +188,7 @@ const motivos = [
   {cat:'Memória 💫',text:'Porque as pulseiras permanentes são o símbolo certo para o que sinto.'},
   {cat:'Memória 💫',text:'Porque o Dia dos Namorados contigo foi o primeiro que realmente fez sentido.'},
   {cat:'Memória 💫',text:'Porque o primeiro dia de namoro, o 31 de outubro, ficou gravado para sempre.'},
-  {cat:'Memória 💫',text:'Porque o nosso ano novo foi o melhor ponto de partida possível para 2025.'},
+  {cat:'Memória 💫',text:'Porque o nosso ano novo foi o melhor ponto de partida possível para 2026.'},
   {cat:'Memória 💫',text:'Porque cada aventura contigo vira automaticamente uma memória favorita.'},
   {cat:'Memória 💫',text:'Porque o primeiro encontro, dia 24 de outubro, foi o dia que tudo mudou.'},
   {cat:'Memória 💫',text:'Porque cada sítio que visitámos juntos ficou melhor na memória do que na realidade.'},
@@ -472,18 +472,18 @@ document.addEventListener("DOMContentLoaded", () => {
    MAPA
    ============================================================ */
 const places = [
-  {emoji:'🍂',name:'Primeiro Encontro',date:'24 Out 2024',desc:'O primeiro encontro que mudou tudo. Aconteceu em outubro e o resto da história conheces.',color:'#ff7043',badge:'O início', imgSrc:'img/mapa_01_primeiro_encontro.jpg'},
-  {emoji:'🎃',name:'Início do Namoro',date:'31 Out 2024',desc:'O dia em que dissemos "sim" a ser um nós. O melhor Halloween de sempre.',color:'#ffa000',badge:'O nosso dia', imgSrc:'img/mapa_02_inicio_namoro.jpg'},
-  {emoji:'🌈',name:'Museu Neonia',date:'15 Nov 2024',desc:'Uma tarde cheia de néon, cores e muito sorriso. O museu mais instagramável com a pessoa mais bonita.',color:'#00897b', imgSrc:'img/mapa_03_neonia.jpg'},
-  {emoji:'🎄',name:'Luzes de Natal',date:'19 Nov 2024',desc:'O Natal chegou cedo este ano, iluminado pela melhor companhia do mundo.',color:'#c62828', imgSrc:'img/mapa_04_luzes_natal.jpg'},
-  {emoji:'🎂',name:'Aniversário',date:'4 Dez 2024',desc:'O teu aniversário — o dia em que o mundo ganhou a sua pessoa mais especial.',color:'#7b1fa2',badge:'⭐ especial', imgSrc:'img/mapa_05_aniversario.jpg'},
-  {emoji:'🎆',name:'Ano Novo',date:'31 Dez 2024',desc:'2025 começou da melhor forma possível: contigo do meu lado.',color:'#1565c0', imgSrc:'img/mapa_06_ano_novo.jpg'},
-  {emoji:'🧱',name:'Expo LEGO',date:'31 Jan 2025',desc:'Mundos construídos peça a peça — exatamente como nós.',color:'#f57f17', imgSrc:'img/mapa_07_expo_lego.jpg'},
-  {emoji:'💝',name:'Dia dos Namorados',date:'14 Fev 2025',desc:'O dia mais clichê do ano e ainda assim o mais especial. Porque era contigo.',color:'#c62828',badge:'💕', imgSrc:'img/mapa_08_dia_namorados.jpg'},
-  {emoji:'🌊',name:'Praia',date:'21 Fev 2025',desc:'O mar em fevereiro, o frio, e a melhor companhia. Não precisávamos de mais nada.',color:'#0277bd', imgSrc:'img/mapa_09_praia.jpg'},
-  {emoji:'🎭',name:'Museu 5 Sentidos',date:'28 Fev 2025',desc:'Cinco sentidos não chegaram para descrever o que sinto. O sexto és tu.',color:'#6a1b9a', imgSrc:'img/mapa_10_5_sentidos.jpg'},
-  {emoji:'⚓',name:'Pulseiras Permanentes',date:'28 Mar 2025',desc:'Um laço que não se tira. Como nós.',color:'#c0435a',badge:'permanente 💕', imgSrc:'img/mapa_11_pulseiras.jpg'},
-  {emoji:'🌅',name:'Tarde na Foz',date:'28 Mar 2025',desc:'O Atlântico à nossa frente e tudo o que importa ao meu lado.',color:'#1976d2', imgSrc:'img/mapa_12_tarde_foz.jpg'},
+  {emoji:'🍂',name:'Primeiro Encontro',date:'24 Out 2025',desc:'O primeiro encontro que mudou tudo. Aconteceu em outubro e o resto da história conheces.',color:'#ff7043',badge:'O início', imgSrc:'img/mapa_01_primeiro_encontro.jpg'},
+  {emoji:'🎃',name:'Início do Namoro',date:'31 Out 2025',desc:'O dia em que dissemos "sim" a ser um nós. O melhor Halloween de sempre.',color:'#ffa000',badge:'O nosso dia', imgSrc:'img/mapa_02_inicio_namoro.jpg'},
+  {emoji:'🌈',name:'Museu Neonia',date:'15 Nov 2025',desc:'Uma tarde cheia de néon, cores e muito sorriso. O museu mais instagramável com a pessoa mais bonita.',color:'#00897b', imgSrc:'img/mapa_03_neonia.jpg'},
+  {emoji:'🎄',name:'Luzes de Natal',date:'19 Nov 2025',desc:'O Natal chegou cedo este ano, iluminado pela melhor companhia do mundo.',color:'#c62828', imgSrc:'img/mapa_04_luzes_natal.jpg'},
+  {emoji:'🎂',name:'Aniversário',date:'4 Dez 2025',desc:'O teu aniversário — o dia em que o mundo ganhou a sua pessoa mais especial.',color:'#7b1fa2',badge:'⭐ especial', imgSrc:'img/mapa_05_aniversario.jpg'},
+  {emoji:'🎆',name:'Ano Novo',date:'31 Dez 2025',desc:'2026 começou da melhor forma possível: contigo do meu lado.',color:'#1565c0', imgSrc:'img/mapa_06_ano_novo.jpg'},
+  {emoji:'🧱',name:'Expo LEGO',date:'31 Jan 2026',desc:'Mundos construídos peça a peça — exatamente como nós.',color:'#f57f17', imgSrc:'img/mapa_07_expo_lego.jpg'},
+  {emoji:'💝',name:'Dia dos Namorados',date:'14 Fev 2026',desc:'O dia mais clichê do ano e ainda assim o mais especial. Porque era contigo.',color:'#c62828',badge:'💕', imgSrc:'img/mapa_08_dia_namorados.jpg'},
+  {emoji:'🌊',name:'Praia',date:'21 Fev 2026',desc:'O mar em fevereiro, o frio, e a melhor companhia. Não precisávamos de mais nada.',color:'#0277bd', imgSrc:'img/mapa_09_praia.jpg'},
+  {emoji:'🎭',name:'Museu 5 Sentidos',date:'28 Fev 2026',desc:'Cinco sentidos não chegaram para descrever o que sinto. O sexto és tu.',color:'#6a1b9a', imgSrc:'img/mapa_10_5_sentidos.jpg'},
+  {emoji:'⚓',name:'Pulseiras Permanentes',date:'28 Mar 2026',desc:'Um laço que não se tira. Como nós.',color:'#c0435a',badge:'permanente 💕', imgSrc:'img/mapa_11_pulseiras.jpg'},
+  {emoji:'🌅',name:'Tarde na Foz',date:'28 Mar 2026',desc:'O Atlântico à nossa frente e tudo o que importa ao meu lado.',color:'#1976d2', imgSrc:'img/mapa_12_tarde_foz.jpg'},
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
