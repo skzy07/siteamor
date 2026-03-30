@@ -40,7 +40,7 @@ function goTo(id, btn){
 /* ============================================================
    COUNTER
    ============================================================ */
-const START = new Date('2025-10-31T00:00:00');
+const START = new Date('2025-10-30T23:00:00');
 function tick(){
   const diff = Date.now() - START.getTime();
   const d = Math.floor(diff/86400000);
@@ -513,7 +513,7 @@ function openModal(p){
   
   const imgEL = document.getElementById('pm-img');
   if (p.imgSrc) {
-    imgEL.src = p.imgSrc;
+    imgEL.src = p.imgSrc + '?t=' + new Date().getTime();
     imgEL.style.display = 'block';
   } else {
     imgEL.style.display = 'none';
