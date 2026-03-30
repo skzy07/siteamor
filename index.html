@@ -1,272 +1,312 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Meses de Amor 💕</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>💕 5 Meses de Nós</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Dancing+Script:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Hearts background container -->
-    <div id="hearts-container"></div>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1 class="glow">5 Meses Contigo</h1>
-            <p class="subtitle">E a contar... ❤️</p>
-            <div id="counter">
-                <div class="time-block">
-                    <span id="months">5</span>
-                    <label>Meses</label>
-                </div>
-                <div class="time-block">
-                    <span id="days">0</span>
-                    <label>Dias</label>
-                </div>
-                <div class="time-block">
-                    <span id="hours">0</span>
-                    <label>Horas</label>
-                </div>
-            </div>
-            <a href="#timeline" class="scroll-down">
-                Descobre a nossa história <span>↓</span>
-            </a>
-        </div>
-    </section>
+<!-- ===== AMBIENT ===== -->
+<div id="ambient">
+  <div class="amb-orb orb1"></div>
+  <div class="amb-orb orb2"></div>
+  <div class="amb-orb orb3"></div>
+</div>
+<div id="starfield"></div>
 
-    <!-- Timeline Section -->
-    <section id="timeline">
-        <h2 class="section-title">Os Nossos Momentos ✨</h2>
-        <div class="timeline-container">
-            
-            <!-- Moment 1 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <div class="date">24 de Outubro</div>
-                    <h3>Primeiro Encontro 🌟</h3>
-                    <p>O dia em que tudo começou. Aquela faísca... e o início de algo muito especial.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_1.png" alt="Primeiro encontro" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_1.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ===== MUSIC PLAYER ===== -->
+<div id="music-player">
+  <button id="music-btn" onclick="toggleMusic()" title="Música">♪</button>
+  <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.4" oninput="setVolume(this.value)">
+  <div id="music-bars" class="paused">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div>
+  </div>
+  <span id="music-label">♫ a nossa música</span>
+</div>
+<audio id="bg-music" loop>
+  <source src="audio/fica.mp3" type="audio/mpeg">
+</audio>
 
-            <!-- Moment 2 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <div class="date">31 de Outubro</div>
-                    <h3>Começamos a Namorar 🎃❤️</h3>
-                    <p>O Halloween mais assustadoramente romântico de sempre. O pedido mais fofo do mundo!</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_2.png" alt="Começamos a namorar" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_2.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ===== NAVIGATION ===== -->
+<nav id="nav">
+  <button class="nav-btn active" data-page="p-home" onclick="goTo('p-home',this)">
+    <span class="nav-icon">🏠</span>
+    <span class="nav-label">Início</span>
+  </button>
+  <button class="nav-btn" data-page="p-timeline" onclick="goTo('p-timeline',this)">
+    <span class="nav-icon">📅</span>
+    <span class="nav-label">Timeline</span>
+  </button>
+  <button class="nav-btn" data-page="p-motivos" onclick="goTo('p-motivos',this)">
+    <span class="nav-icon">💌</span>
+    <span class="nav-label">150 Motivos</span>
+  </button>
+  <button class="nav-btn" data-page="p-raspadinha" onclick="goTo('p-raspadinha',this)">
+    <span class="nav-icon">🎫</span>
+    <span class="nav-label">Raspadinha</span>
+  </button>
+  <button class="nav-btn" data-page="p-mapa" onclick="goTo('p-mapa',this)">
+    <span class="nav-icon">🗺️</span>
+    <span class="nav-label">Mapa</span>
+  </button>
+  <button class="nav-btn" data-page="p-cofre" onclick="goTo('p-cofre',this)">
+    <span class="nav-icon">🔒</span>
+    <span class="nav-label">Cofre</span>
+  </button>
+  <button class="nav-btn" data-page="p-bucket" onclick="goTo('p-bucket',this)">
+    <span class="nav-icon">✈️</span>
+    <span class="nav-label">Bucket List</span>
+  </button>
+  <button class="nav-btn" data-page="p-desafio" onclick="goTo('p-desafio',this)">
+    <span class="nav-icon">🧩</span>
+    <span class="nav-label">Desafio</span>
+  </button>
+</nav>
 
-            <!-- Moment 3 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <div class="date">15 de Novembro</div>
-                    <h3>Museu Neonia 🌈</h3>
-                    <p>Luzes neon e muitas memórias coloridas! Uma experiência imersiva fantástica juntos.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_3.png" alt="Museu Neonia" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_3.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ===== APP ===== -->
+<div id="app">
 
-            <!-- Moment 4 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <div class="date">19 de Novembro</div>
-                    <h3>Luzes de Natal ✨🎄</h3>
-                    <p>O espírito natalício com a melhor companhia. Brilhavas mais do que as próprias luzes.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_4.png" alt="Luzes de Natal" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_4.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 1: HOME ─────────────────── -->
+<div class="page active" id="p-home">
+  <div class="home-hero">
+    <div class="page-badge fade-up">✦ desde 31 de outubro de 2024 ✦</div>
+    <h1 class="home-main-title fade-up delay-1">
+      <span>5</span> Meses<br>de <em style="color:var(--rose-l);font-style:italic">Nós</em>
+    </h1>
+    <p class="home-cursive fade-up delay-2">a nossa história, capítulo a capítulo 💕</p>
+    <div class="counter-strip fade-up delay-3">
+      <div class="counter-pill"><span class="num" id="c-days">—</span><div class="lbl">Dias</div></div>
+      <div class="counter-pill"><span class="num" id="c-hours">—</span><div class="lbl">Horas</div></div>
+      <div class="counter-pill"><span class="num" id="c-mins">—</span><div class="lbl">Minutos</div></div>
+      <div class="counter-pill"><span class="num" id="c-secs">—</span><div class="lbl">Segundos</div></div>
+    </div>
+  </div>
 
-            <!-- Moment 5 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <div class="date">4 de Dezembro</div>
-                    <h3>O Teu Aniversário 🎂🎉</h3>
-                    <p>A celebrar a pessoa mais incrível da minha vida. Parabéns, meu amor!</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_5.png" alt="O Teu Aniversário" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_5.png)]</div>
-                    </div>
-                </div>
-            </div>
+  <div class="dashboard-grid">
+    <div class="dash-card" onclick="goTo('p-timeline',navBtn('p-timeline'))">
+      <span class="dash-icon">📅</span>
+      <div class="dash-name">A Nossa Timeline</div>
+    </div>
+    <div class="dash-card" onclick="goTo('p-motivos',navBtn('p-motivos'))">
+      <span class="dash-icon">💌</span>
+      <div class="dash-name">150 Motivos</div>
+    </div>
+    <div class="dash-card" onclick="goTo('p-raspadinha',navBtn('p-raspadinha'))">
+      <span class="dash-icon">🎫</span>
+      <div class="dash-name">Raspadinha</div>
+    </div>
+    <div class="dash-card" onclick="goTo('p-mapa',navBtn('p-mapa'))">
+      <span class="dash-icon">🗺️</span>
+      <div class="dash-name">Mapa do Amor</div>
+    </div>
+    <div class="dash-card" onclick="goTo('p-cofre',navBtn('p-cofre'))">
+      <span class="dash-icon">🔒</span>
+      <div class="dash-name">Cofre Secreto</div>
+    </div>
+    <div class="dash-card" onclick="goTo('p-bucket',navBtn('p-bucket'))">
+      <span class="dash-icon">✈️</span>
+      <div class="dash-name">Bucket List</div>
+    </div>
+    <div class="dash-card" onclick="goTo('p-desafio',navBtn('p-desafio'))">
+      <span class="dash-icon">🧩</span>
+      <div class="dash-name">O Desafio</div>
+    </div>
+  </div>
+</div>
 
-            <!-- Moment 6 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <div class="date">31 de Dezembro</div>
-                    <h3>Ano Novo 🎆</h3>
-                    <p>Entrar no novo ano ao teu lado foi a garantia de que este seria o melhor ano de sempre!</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_6.png" alt="Ano Novo" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_6.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 2: TIMELINE ─────────────────── -->
+<div class="page" id="p-timeline">
+  <div class="page-hero">
+    <div class="page-badge">✦ a nossa linha do tempo ✦</div>
+    <h1 class="page-title">Cada <em>Momento</em>,<br>Para Sempre</h1>
+    <p class="page-sub">do primeiro olhar até hoje 🌸</p>
+  </div>
+  <div class="timeline-wrap">
+    <div class="tl-line"></div>
+    <div id="tl-items"></div>
+  </div>
+</div>
 
-            <!-- Moment 7 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <div class="date">31 de Janeiro</div>
-                    <h3>Exposição de Lego 🧱</h3>
-                    <p>A construir memórias! Literalmente e figurativamente. Parecíamos duas crianças felizes.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_7.png" alt="Exposição de Lego" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_7.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 3: 150 MOTIVOS ─────────────────── -->
+<div class="page" id="p-motivos">
+  <div class="page-hero">
+    <div class="page-badge">✦ porque te amo ✦</div>
+    <h1 class="page-title"><em>150 Motivos</em><br>para Te Amar</h1>
+    <p class="page-sub">carrega para descobrir cada um 💕</p>
+  </div>
+  <div class="motivos-center section-inner" style="padding-bottom:120px">
+    <div class="motivo-display">
+      <span class="motivo-cat" id="m-cat">Romântico</span>
+      <span class="motivo-num" id="m-num">#1</span>
+      <p class="motivo-text" id="m-text">Carrega o botão para descobrir o primeiro motivo...</p>
+    </div>
+    <div class="motivo-progress">Motivo <span id="m-cur">0</span> de <span id="m-total">150</span></div>
+    <div class="motivo-bar"><div class="motivo-fill" id="m-fill" style="width:0%"></div></div>
+    <div class="motivo-controls">
+      <button class="btn-primary" onclick="nextMotivo()">✨ Próximo Motivo</button>
+      <button class="btn-secondary" onclick="shuffleMotivo()">🔀 Aleatório</button>
+    </div>
+  </div>
+</div>
 
-            <!-- Moment 8 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <div class="date">14 de Fevereiro</div>
-                    <h3>Dia dos Namorados 💝</h3>
-                    <p>O dia é para todos os namorados, mas tu és só a minha. O meu coração é teu todos os dias.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_8.png" alt="Dia dos Namorados" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_8.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 4: RASPADINHA ─────────────────── -->
+<div class="page" id="p-raspadinha">
+  <div class="page-hero">
+    <div class="page-badge">✦ cupões de amor ✦</div>
+    <h1 class="page-title">Raspadinha<br><em>Digital</em> 🎫</h1>
+    <p class="page-sub">raspa para revelares a surpresa! ✨</p>
+  </div>
+  <div class="raspadinha-wrap section-inner" style="padding-bottom:120px">
+    <div class="raspadinha-card">
+      <p class="raspadinha-label">✦ raspa aqui ✦</p>
+      <div class="canvas-wrap" style="position:relative;">
+        <div id="scratch-under" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#1a0a12;border-radius:12px;color:white;z-index:1;overflow:hidden;"></div>
+        <canvas id="scratch-canvas" width="300" height="160" style="position:relative;z-index:2;background:transparent;"></canvas>
+      </div>
+      <p class="raspadinha-hint">🖱️ Usa o rato ou o dedo para raspar</p>
+      <p class="rasp-reveal-text" id="rasp-text"></p>
+      <button class="btn-secondary" style="margin-top:16px;font-size:.8rem;" onclick="resetScratch()">↩ Nova Raspadinha</button>
+    </div>
+    <div class="raspadinha-coupon-list">
+      <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:16px;text-align:center;">Os teus cupões ganhos:</p>
+      <div id="coupon-list"></div>
+    </div>
+  </div>
+</div>
 
-            <!-- Moment 9 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <div class="date">21 de Fevereiro</div>
-                    <h3>Ida à Praia 🌊</h3>
-                    <p>Um passeio calmo, a ouvir o mar, mas a minha parte favorita era a pessoa que estava ao meu lado.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_9.png" alt="Ida à Praia" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_9.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 5: MAPA ─────────────────── -->
+<div class="page" id="p-mapa">
+  <div class="page-hero">
+    <div class="page-badge">✦ os nossos lugares ✦</div>
+    <h1 class="page-title">Mapa do<br><em>Nosso Amor</em></h1>
+    <p class="page-sub">cada sítio tem uma história 📍</p>
+  </div>
+  <div class="mapa-wrap">
+    <div class="mapa-grid" id="mapa-grid"></div>
+  </div>
+</div>
 
-            <!-- Moment 10 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <div class="date">28 de Fevereiro</div>
-                    <h3>Museu dos 5 Sentidos 👁️👃👂</h3>
-                    <p>Onde percebi que o meu sentido preferido é sentir-te sempre por perto.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_10.png" alt="Museu dos 5 Sentidos" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_10.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- place detail modal -->
+<div class="place-modal-overlay" id="place-modal" onclick="closeModal(event)">
+  <div class="place-modal">
+    <span class="place-modal-emoji" id="pm-emoji">📍</span>
+    <h2 class="place-modal-title" id="pm-name"></h2>
+    <img src="" id="pm-img" class="place-modal-img" alt="Momento Especial" style="display:none;width:100%;max-height:200px;object-fit:cover;border-radius:12px;margin:12px 0;border:2px solid var(--rose-l);">
+    <p class="place-modal-date" id="pm-date"></p>
+    <p class="place-modal-desc" id="pm-desc"></p>
+    <button class="btn-secondary place-modal-close" onclick="closeModal()">Fechar ✕</button>
+  </div>
+</div>
 
-            <!-- Moment 11 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <div class="date">28 de Março</div>
-                    <h3>Pulseiras Permanentes 🔗</h3>
-                    <p>Uma marca eterna de que estamos unidos, agora não há volta a dar! Eheh.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_11.png" alt="Pulseiras Permanentes" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_11.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 6: COFRE ─────────────────── -->
+<div class="page" id="p-cofre">
+  <div class="page-hero">
+    <div class="page-badge">✦ só para os teus olhos ✦</div>
+    <h1 class="page-title">Cofre<br><em>Secreto</em> 🔒</h1>
+    <p class="page-sub">tens a palavra certa? 🗝️</p>
+  </div>
+  <div class="cofre-wrap section-inner" style="padding-bottom:120px">
+    <span class="cofre-visual" id="cofre-icon">🔒</span>
+    <div class="cofre-input-wrap">
+      <input class="cofre-input" id="cofre-input" type="password" placeholder="palavra-chave..." maxlength="20" onkeydown="if(event.key==='Enter')openCofre()">
+      <button class="btn-primary" onclick="openCofre()">🗝️ Abrir o Cofre</button>
+      <p class="cofre-hint">Dica: Qual é o nosso sítio mais especial? 🥰</p>
+      <p class="cofre-error" id="cofre-error">❌ Palavra errada, amor. Tenta outra vez!</p>
+    </div>
+    <div id="cofre-letter">
+      <p class="letter-salut">Para ti, meu amor... 💕</p>
+      <div class="letter-body">
+        Havia uma vez um rapaz que pensava que sabia o que era estar feliz.
+        Depois conheceu-te, e percebeu que antes era só o ensaio.<br><br>
+        <strong>Cinco meses</strong> contigo foram mais cheios do que anos inteiros sem ti.
+        Cada aventura — o Neonia com as cores todas, a praia em fevereiro quando estava frio,
+        os LEGO gigantes, as pulseiras que ficam para sempre — cada uma delas tem o teu sorriso no meio.<br><br>
+        Não sei escrever poesia bonita. Mas sei que quando acordo e penso em ti, o dia já começa bem.
+        Sei que quando estou contigo o tempo passa a uma velocidade que devia ser ilegal.
+        E sei que <strong>a pulseira que pusemos juntos</strong> não é a única coisa permanente — és tu.<br><br>
+        Obrigado por seres a minha pessoa favorita, o meu sítio favorito,
+        a minha <em>memória favorita que ainda está a acontecer</em>.<br><br>
+        Felizes 5 meses, amor. Que sejam muitos mais. 🌙
+      </div>
+      <p class="letter-sign">com todo o meu coração 💕</p>
+    </div>
+  </div>
+</div>
 
-            <!-- Moment 12 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <div class="date">28 de Março</div>
-                    <h3>Ida à Foz 🌅</h3>
-                    <p>E no mesmo dia, uma ida à Foz. De mão dada e olhar no horizonte. Tão bom.</p>
-                    <div class="image-wrapper">
-                        <img src="img/moment_12.png" alt="Ida à Foz" class="timeline-img">
-                        <div class="img-placeholder-desc">[Coloca aqui a foto (moment_12.png)]</div>
-                    </div>
-                </div>
-            </div>
+<!-- ─────────────────── PAGE 7: BUCKET LIST ─────────────────── -->
+<div class="page" id="p-bucket">
+  <div class="page-hero">
+    <div class="page-badge">✦ os nossos sonhos ✦</div>
+    <h1 class="page-title">Bucket List<br><em>de Nós</em> ✈️</h1>
+    <p class="page-sub">o que falta ainda fazer juntos 🌍</p>
+  </div>
+  <div class="bucket-wrap">
+    <div class="bucket-stats">
+      <div style="text-align:center"><span class="bstat-num" id="b-done">0</span><div class="bstat-lbl">Feitos</div></div>
+      <div style="text-align:center"><span class="bstat-num" id="b-total">0</span><div class="bstat-lbl">Total</div></div>
+      <div style="text-align:center"><span class="bstat-num" id="b-pct">0%</span><div class="bstat-lbl">Progresso</div></div>
+    </div>
+    <div id="bucket-list"></div>
+  </div>
+</div>
 
-        </div>
-    </section>
+<!-- ─────────────────── PAGE 8: DESAFIO ─────────────────── -->
+<div class="page" id="p-desafio">
+  <div class="page-hero">
+    <div class="page-badge">✦ o teu desafio ✦</div>
+    <h1 class="page-title">O Puzzle<br><em>do Amor</em> 🧩</h1>
+    <p class="page-sub">ordena a nossa história e ganha a chave! 🗝️</p>
+  </div>
+  <div class="desafio-wrap">
+    <div class="puzzle-hint-box">
+      <span class="icon">💡</span>
+      <p>Ordena os emojis na <strong>sequência cronológica da nossa história</strong> — do início ao fim. Clica numa peça e depois noutra para as trocar. Quando completares, ganha a chave do baú!</p>
+    </div>
+    <div id="puzzle-grid"></div>
+    <div class="puzzle-actions">
+      <button class="btn-primary" onclick="checkPuzzle()">✨ Verificar</button>
+      <button class="btn-secondary" onclick="shufflePuzzle()">🔀 Baralhar</button>
+    </div>
+    <div class="puzzle-prog">
+      <div class="puzzle-prog-label" id="puzzle-status">0 de 16 peças corretas</div>
+      <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+    </div>
 
-    <!-- Quotes Carousel Section -->
-    <section id="quotes">
-        <h2 class="section-title">Coisas sobre Nós 💭</h2>
-        <div class="quotes-carousel">
-            <div class="quote-card">
-                "Dizes que sou chato, mas não consegues viver sem mim! 😝"
-            </div>
-            <div class="quote-card">
-                "5 meses é só o aquecimento... prepara-te para os próximos 50 anos!"
-            </div>
-            <div class="quote-card">
-                "Não sei o que gosto mais: o teu sorriso ou quando me deixas ganhar nas discussões (que é nunca)."
-            </div>
-        </div>
-    </section>
+    <div class="bau-section">
+      <p class="bau-sub">Completa o puzzle para obter a chave do baú 🗝️</p>
+      <h2 class="bau-title">O Baú do Tesouro 🎁</h2>
+      <span class="bau-emoji" id="bau-icon">🔒</span>
+      <div class="bau-input-row">
+        <input class="bau-input" id="bau-input" placeholder="a tua chave..." maxlength="20" onkeydown="if(event.key==='Enter')openBau()">
+        <button class="btn-primary" onclick="openBau()">Abrir 🗝️</button>
+      </div>
+      <p class="bau-error" id="bau-error">❌ Chave errada! Completa o puzzle primeiro...</p>
+      <div id="bau-reward">
+        <span class="reward-icon">🎁</span>
+        <h3 class="reward-title">A Pista Está Aqui!</h3>
+        <p class="reward-clue">
+          A tua prenda não está aqui... está <strong>escondida algures em casa</strong>. 🏠<br><br>
+          Segue esta pista com atenção:<br><br>
+          <em>"Vai ao sítio onde a gente passa mais tempo a rir juntos,
+          onde o calor é mais quentinho e os planos nascem.
+          Procura perto do lugar onde costumas pousar as coisas
+          quando chegas a casa — o teu cantinho favorito."</em><br><br>
+          💌 Boa sorte, amor. Vai lá encontrar! 💌
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Mini-Game Puzzle Section -->
-    <section id="minigame">
-        <h2 class="section-title">O Desafio Final 🧩</h2>
-        <p class="subtitle">Resolve este pequeno puzzle para ganhar uma recompensa muito especial!</p>
-        
-        <div class="game-container">
-            <div id="puzzle-board">
-                <!-- Tiles dynamically injected with JS -->
-            </div>
-            <div class="game-hint">
-                <p>Move as peças para completar a imagem misteriosa!</p>
-                <button id="solve-button-dev" style="opacity:0.2;">[DEV: Auto-Completar]</button>
-            </div>
-        </div>
+</div><!-- end #app -->
 
-        <div id="key-container" class="hidden">
-            <div class="key-icon glow">🗝️</div>
-            <p>Conseguiste! Ganháste a chave dourada! <br><small><i>(Agarra a chave para abrir o baú ↓)</i></small></p>
-        </div>
+<div id="toast"></div>
 
-        <!-- Chest Section -->
-        <div id="chest-container" class="locked">
-            <div class="chest">
-                <div class="chest-lid"></div>
-                <div class="chest-body">
-                    <div class="chest-lock"></div>
-                </div>
-            </div>
-            <p class="chest-text">O Baú dos Segredos encontra-se trancado...</p>
-        </div>
-
-        <!-- Gift ClueReveal -->
-        <div id="clue-reveal" class="hidden">
-            <h3>Surpresa! 🎉🎁</h3>
-            <div class="clue-card glow">
-                <p>Para comemorar estes 5 meses fantásticos, tenho mais uma surpresa guardada para ti!</p>
-                <div class="clue-text" id="user-clue-placeholder">
-                    "A tua prenda está escondida ... <br><strong>[COLOCA AQUI A TUA PISTA / EX: debaixo da minha cama, no móvel da cozinha, etc]</strong>"
-                </div>
-                <p class="small-text">Vai procurá-la! Amo-te muito! ❤️</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>Feito com muito ❤️ para ti, no nosso dia 31 de Março!</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/puzzle.js"></script>
+<!-- Carregar Scripts -->
+<script src="js/main.js"></script>
 </body>
 </html>
